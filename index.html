@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://academlostorev1.netlify.app/images/favicon.png">
+    <title>Olger Academlo Store</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="./assets/js/main.js" defer></script>
+</head>
+
+
+<body>
+    <!-- ID APP -->
+    <header> <!-- ID HEADERPRINCIPAL CLASS HEADER_SHOW -->
+        <nav class="navbar"> <!--CONTAINER -->
+
+            <a class="navbar__logo" href="#home"> <!--AQUI VA CLASS NAVBAR LOGO -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="navbar__logo-icon">
+                    <title>Academlo Logo</title>
+                    <path
+                        d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+                    </path>
+                </svg>
+                <span>STORE</span>
+            </a>
+
+
+            <!--AQUI VA 1 UL CON 2 LI DE CLASS NAVBAR_MENU Y ID NAVBARMENU -->
+
+            <div class="navbar__icons">
+                <i class='bx bx-moon'></i>
+                <i class='bx bx-cart'></i>
+                <i class='bx bxs-dashboard'></i>
+            </div>
+            <ul class="navbar__dashboard">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+            </ul>
+            <!-- <ul class="navbar__cart"></ul> -->
+            <!-- <div class="navbar__card"></div> -->
+        </nav>
+
+
+    </header>
+
+    <main class="container" id="Home">
+        <div class="home__content"> <!--SCROLLPY CON ID HOME-->
+            <div class="home__header">
+                <div></div>
+                <div class="home__header-img">
+                    <img src="https://academlostorev1.netlify.app/images/sweater2.png" alt="home image">
+                </div>
+            </div>
+
+            <div class="home__body"> <!--CONTAINER-->
+                <h2 class="home__body-title">New Sweatshirt COLLECTIONS 2022</h2>
+                <p class="home__body-description">
+                    Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a
+                    modern design.
+                </p>
+                <p class="home__body-price">
+                    $14.00
+                </p>
+                <a href="#commodity" class="home__body-button"> Show more</a>
+            </div>
+        </div>
+
+        <div class="container__products" id="products">
+            <div class="products"></div>
+        </div>
+<!-- --------------------------------cart -->
+        <section class="cart">
+            <i class='bx bxs-x-circle'></i>
+            <div class="cart__products">
+            </div>
+            <div class="cart__total">
+                <div class="cart__total-price">
+                    <p class="items"></p>
+                    <p class="price"></p>
+                </div>
+                <button class="btn__buy">Comprar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer__content container">
+            <div class="footer__info">
+                <h3 class="footer__info-title">Our information</h3>
+                <ul>
+                    <li>
+                        <a href="#">Toluca - México</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__info">
+                <h3 class="footer__info-title">About Us</h3>
+                <ul>
+                    <li><a href="#">Suport Center</a></li>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Copy Rght</a></li>
+                </ul>
+            </div>
+            <div class="footer__info">
+                <h3 class="footer__info-title">Product</h3>
+                <ul>
+                    <li><a href="#">Hoodies</a></li>
+                    <li><a href="#">Shirts</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Sweatshirts</a></li>
+                </ul>
+            </div>
+            <div class="footer__info">
+                <h3 class="footer__info-title">Social</h3>
+                <ul>
+                    <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
+                    <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+                    <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <p>
+            Olger Isaac Ortiz Duque <br>
+            <i class='bx bx-envelope'></i>
+            olgerortiz24@gmail.com
+            <a href="#">repositorio</a>
+        </p>
+    </footer>
+
+
+
+
+
+</body>
+
+</html>
