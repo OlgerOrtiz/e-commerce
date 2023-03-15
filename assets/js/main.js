@@ -75,10 +75,11 @@ function printProducts(dataBase) {
                     </div>
                     <div class="product__body">
                         <h3>$${price}.00 ${quantity ? `<span>Stock: ${quantity}</span>`
-                : '<span>Stock: <span class="soldOut"> Sold out</span></span>'}</h3> 
+                : `<span class="soldOut"> Sold out</span>`}</h3> 
                         <p>${name}</p>
-                        <i class='bx bx-plus' id="${id}"></i>
+                        ${quantity ? `<i class='bx bx-plus' id="${id}"></i>` : ``}
                     </div>
+                    
                 </div>
         `;
     });
@@ -123,6 +124,7 @@ function addProductsToCart(dataBase) {
 
             printProductsInCart(dataBase);
             printTotal(dataBase);
+            handlePrintAmountProductsToCard(dataBase);
         }
 
     })
@@ -190,7 +192,10 @@ function handleAmountProductInCart(dataBase) {
         printProductsInCart(dataBase);
         printTotal(dataBase);
 
-    })
+    });
+    printProductsInCart(dataBase);
+    printTotal(dataBase);
+    handlePrintAmountProductsToCard(dataBase);
 }
 
 function printTotal(dataBase) {
@@ -238,7 +243,18 @@ function handleStockTotal(dataBase) {
         printProductsInCart(dataBase);
         printTotal(dataBase);
         printProducts(dataBase);
+        handlePrintAmountProductsToCard(dataBase);
     });
+}
+
+function handlePrintAmountProductsToCard(dataBase) {
+    const amountProducts = document.querySelector('.amountProducts');
+    let amount = 0;
+        for (const product in dataBase.cart) {
+            amount += dataBase.cart[product].amount;
+
+        }
+        amountProducts.textContent = amount;
 }
 
 
@@ -262,10 +278,10 @@ async function main() {
     printProductsInCart(dataBase);
     handleAmountProductInCart(dataBase);
     printTotal(dataBase);
-    handleStockTotal(dataBase)
+    handleStockTotal(dataBase);
+    handlePrintAmountProductsToCard(dataBase);
 
-
-
+    
 
 }
 main();
