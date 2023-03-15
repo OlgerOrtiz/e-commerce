@@ -21,12 +21,30 @@ function handleNavbar() {
     })
 }
 function handleDarkMode() {
-    const iconTheme = document.querySelector('.bx-moon');
-    iconTheme.addEventListener('click', function () {
-        document.body.classList.toggle('darkmode')
+    const iconThemeMoon = document.querySelector('.bx-moon');
+    const iconThemeSun = document.querySelector('.bx-sun');
+
+    iconThemeMoon.addEventListener('click', function () {
+        if (document.body.classList.toggle('darkmode')) {
+            const boton_add = document.getElementById("add");
+            boton_add.style.display = "none";
+
+            const boton_remove = document.getElementById("remove");
+            boton_remove.style.display = "inline-block";
+        }
 
     })
+    iconThemeSun.addEventListener('click', function () {
+        if (!document.body.classList.toggle('darkmode')) {
+            const boton_remove = document.getElementById("remove");
+            boton_remove.style.display = "none";
+
+            const boton_add = document.getElementById("add");
+            boton_add.style.display = "inline-block";
+        }
+    })
 }
+
 
 // -------------------------------PRODUCTOS-------------------------------
 async function getProduct() {
@@ -56,8 +74,8 @@ function printProducts(dataBase) {
                         <img src="${image}" alt="product">
                     </div>
                     <div class="product__body">
-                        <h3>$${price}.00 ${quantity ? `<span>Stock: ${quantity}</span>` 
-                        : '<span>Stock: <span class="soldOut"> Sold out</span></span>' }</h3> 
+                        <h3>$${price}.00 ${quantity ? `<span>Stock: ${quantity}</span>`
+                : '<span>Stock: <span class="soldOut"> Sold out</span></span>'}</h3> 
                         <p>${name}</p>
                         <i class='bx bx-plus' id="${id}"></i>
                     </div>
@@ -209,7 +227,7 @@ function handleStockTotal(dataBase) {
                 });
             } else {
                 currentProducts.push(product);
-            }7
+            } 7
         }
         dataBase.products = currentProducts;
         dataBase.cart = {};
@@ -244,9 +262,9 @@ async function main() {
     printProductsInCart(dataBase);
     handleAmountProductInCart(dataBase);
     printTotal(dataBase);
-    handleStockTotal(dataBase);
+    handleStockTotal(dataBase)
 
-    
+
 
 
 }
