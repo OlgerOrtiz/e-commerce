@@ -148,11 +148,9 @@ header {
 }
 
 .bx-moon {
-    cursor: pointer;
     display: inline-block;
 }
 .bx-sun {
-    cursor: pointer;
     display: none;
 }
 
@@ -186,7 +184,7 @@ header {
 .cart {
     position: fixed;
     z-index: var(--z-content-cart);
-    background-color: var(--container-color);
+    background-color: var(--card-color);
     width: 80%;
     height: 60vh;
     top: 0;
@@ -392,7 +390,7 @@ p.home__body-price {
 
 a.home__body-button {
     color: white;
-    background-color: var(--button-color);
+    background-color: var(--card-color);
     padding: 1rem 2rem;
     place-self: baseline;
     font-weight: 500;
@@ -400,7 +398,30 @@ a.home__body-button {
 }
 
 /* -----------------------------------libreria----------------------------------- */
-
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 4rem;
+}
+.btn__filter {
+    background-color: transparent;
+    color: var(--title-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    padding: 0.7rem 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.btn__filter:hover {
+    background-color: var(--first-color);
+    color: white;
+}
+.btn__filter-active {
+    background-color: var(--first-color);
+    color: white;
+}
 /* ---------------------------------------Products------------------------------- */
 .container__products {
     display: grid;
@@ -597,6 +618,15 @@ footer>p {
         display: none;
     }
 
+    .filters {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+    .btn__filter {
+        width: 100px;
+    }
+    
     .footer__content {
         display: flex;
         flex-direction: row;

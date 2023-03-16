@@ -9,16 +9,15 @@
     <title>Olger Academlo Store</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="./assets/js/mixitup.min.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
 </head>
 
 
 <body>
-    <!-- ID APP -->
-    <header> <!-- ID HEADERPRINCIPAL CLASS HEADER_SHOW -->
-        <nav class="navbar"> <!--CONTAINER -->
-
-            <a class="navbar__logo" href="#Home"> <!--AQUI VA CLASS NAVBAR LOGO -->
+    <header>
+        <nav class="navbar">
+            <a class="navbar__logo" href="#Home">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="navbar__logo-icon">
                     <title>Academlo Logo</title>
                     <path
@@ -32,8 +31,6 @@
                 <a href="#products">Products</a>
             </p>
 
-            <!--AQUI VA 1 UL CON 2 LI DE CLASS NAVBAR_MENU Y ID NAVBARMENU -->
-
             <div class="navbar__icons">
                 <i class="bx bx-moon" id="add"></i>
                 <i class="bx bx-sun" id="remove"></i>
@@ -46,15 +43,13 @@
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#products">Products</a></li>
             </ul>
-            <!-- <ul class="navbar__cart"></ul> -->
-            <!-- <div class="navbar__card"></div> -->
         </nav>
 
 
     </header>
 
     <main class="container" id="Home">
-        <div class="home__content"> <!--SCROLLPY CON ID HOME-->
+        <div class="home__content">
             <div class="home__header">
                 <div></div>
                 <div class="home__header-img">
@@ -62,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="home__body"> <!--CONTAINER-->
+            <div class="home__body">
                 <h2 class="home__body-title">New Sweatshirt COLLECTIONS 2022</h2>
                 <p class="home__body-description">
                     Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a
@@ -74,8 +69,18 @@
                 <a href="#products" class="home__body-button"> Show more</a>
             </div>
         </div>
+        <!-- --------------------LIBRARY -->
 
+        <!-- ---------------------PRODUCTS -->
         <div class="container__products" id="products">
+            <div class="container__filter">
+                <div class="filters">
+                    <button class="btn__filter btn__filter-active" data-filter="all">All</button>
+                    <button class="btn__filter" data-filter=".shirt">Shirt</button>
+                    <button class="btn__filter" data-filter=".hoddie">Hoddie</button>
+                    <button class="btn__filter" data-filter=".sweater">Sweater</button>
+                </div>
+            </div>
             <div class="products"></div>
         </div>
         <!-- --------------------------------cart -->
@@ -134,7 +139,7 @@
             <span>Olger Isaac Ortiz Duque</span> <br>
             <i class='bx bx-envelope '> olgerortiz24@gmail.com</i><br>
             
-            <a href="https://github.com/OlgerOrtiz/e-commerce" ><i class='bx bxl-netlify '> Repositorio</i></a>
+            <a href="https://github.com/OlgerOrtiz/e-commerce" target="blank"><i class='bx bxl-netlify '> Repositorio</i></a>
         </p>
     </footer>
 

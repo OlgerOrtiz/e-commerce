@@ -67,9 +67,9 @@ function printProducts(dataBase) {
 
     let html = '';
 
-    dataBase.products.forEach(({ id, image, name, price, quantity }) => {
+    dataBase.products.forEach(({ id, image, name, price, quantity, category }) => {
         html += `
-                <div class="product">
+                <div class="product ${category}">
                     <div class="product__img">
                         <img src="${image}" alt="product">
                     </div>
@@ -281,7 +281,26 @@ async function main() {
     handleStockTotal(dataBase);
     handlePrintAmountProductsToCard(dataBase);
 
-    
+
+    const filtersHTML = document.querySelectorAll('.filters .btn__filter');
+
+    filtersHTML.forEach((filter) => {
+        filter.addEventListener('click', (element) => {
+
+            filtersHTML.forEach((filter) => 
+            filter.classList.remove('btn__filter-active') )
+            element.target.classList.add('btn__filter-active');
+        });
+    });
+
+    mixitup('.products', {
+        selectors: {
+            target: '.product'
+        },
+        animation: {
+            duration: 300
+        }
+    });
 
 }
 main();
