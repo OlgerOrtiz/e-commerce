@@ -244,6 +244,7 @@ function handleStockTotal(dataBase) {
         printTotal(dataBase);
         printProducts(dataBase);
         handlePrintAmountProductsToCard(dataBase);
+        location.reload();
     });
 }
 

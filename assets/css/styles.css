@@ -407,6 +407,7 @@ a.home__body-button {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 1rem 4rem;
+    user-select: none;
 }
 
 .btn__filter {
