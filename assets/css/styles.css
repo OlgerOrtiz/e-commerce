@@ -390,7 +390,7 @@ p.home__body-price {
 
 a.home__body-button {
     color: white;
-    background-color: var(--card-color);
+    background-color: var(--button-color-alt);
     padding: 1rem 2rem;
     place-self: baseline;
     font-weight: 500;
