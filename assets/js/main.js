@@ -256,7 +256,27 @@ function handlePrintAmountProductsToCard(dataBase) {
         }
         amountProducts.textContent = amount;
 }
+function handleFliter() {
+    const filtersHTML = document.querySelectorAll('.filters .btn__filter');
 
+filtersHTML.forEach((filter) => {
+    filter.addEventListener('click', (element) => {
+
+        filtersHTML.forEach((filter) => 
+        filter.classList.remove('btn__filter-active') )
+        element.target.classList.add('btn__filter-active');
+    });
+});
+
+mixitup('.products', {
+    selectors: {
+        target: '.product'
+    },
+    animation: {
+        duration: 300
+    }
+});
+}
 
 // ------------------------------------MAIN
 
@@ -280,27 +300,7 @@ async function main() {
     printTotal(dataBase);
     handleStockTotal(dataBase);
     handlePrintAmountProductsToCard(dataBase);
-
-
-    const filtersHTML = document.querySelectorAll('.filters .btn__filter');
-
-    filtersHTML.forEach((filter) => {
-        filter.addEventListener('click', (element) => {
-
-            filtersHTML.forEach((filter) => 
-            filter.classList.remove('btn__filter-active') )
-            element.target.classList.add('btn__filter-active');
-        });
-    });
-
-    mixitup('.products', {
-        selectors: {
-            target: '.product'
-        },
-        animation: {
-            duration: 300
-        }
-    });
+    handleFliter()
 
 }
 main();
