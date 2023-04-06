@@ -62,6 +62,8 @@ async function getProduct() {
         console.log(error);
     }
 }
+
+
 function printProducts(dataBase) {
     const productsHTML = document.querySelector('.products');
 
@@ -76,7 +78,7 @@ function printProducts(dataBase) {
                     <div class="product__body">
                         <h3>$${price}.00 ${quantity ? `<span>Stock: ${quantity}</span>`
                 : `<span class="soldOut"> Sold out</span>`}</h3> 
-                        <p>${name}</p>
+                        <p class="product__body--name" id=${id}>${name}</p>
                         ${quantity ? `<i class='bx bx-plus' id="${id}"></i>` : ``}
                     </div>
                     
@@ -232,7 +234,7 @@ function handleStockTotal(dataBase) {
                 });
             } else {
                 currentProducts.push(product);
-            } 7
+            }
         }
         dataBase.products = currentProducts;
         dataBase.cart = {};
@@ -251,34 +253,96 @@ function handleStockTotal(dataBase) {
 function handlePrintAmountProductsToCard(dataBase) {
     const amountProducts = document.querySelector('.amountProducts');
     let amount = 0;
-        for (const product in dataBase.cart) {
-            amount += dataBase.cart[product].amount;
+    for (const product in dataBase.cart) {
+        amount += dataBase.cart[product].amount;
 
-        }
-        amountProducts.textContent = amount;
+    }
+    amountProducts.textContent = amount;
 }
 function handleFliter() {
     const filtersHTML = document.querySelectorAll('.filters .btn__filter');
 
-filtersHTML.forEach((filter) => {
-    filter.addEventListener('click', (element) => {
+    filtersHTML.forEach((filter) => {
+        filter.addEventListener('click', (element) => {
 
-        filtersHTML.forEach((filter) => 
-        filter.classList.remove('btn__filter-active') )
-        element.target.classList.add('btn__filter-active');
+            filtersHTML.forEach((filter) =>
+                filter.classList.remove('btn__filter-active'))
+            element.target.classList.add('btn__filter-active');
+        });
     });
-});
 
-mixitup('.products', {
-    selectors: {
-        target: '.product'
-    },
-    animation: {
-        duration: 300
-    }
-});
+    mixitup('.products', {
+        selectors: {
+            target: '.product'
+        },
+        animation: {
+            duration: 300
+        }
+    });
 }
 
+// ---------------------------------LOADING
+
+setTimeout(function () {
+    const loadingHTML = document.querySelector('.loading');
+
+    loadingHTML.style.display = 'none';
+}, 2000)
+
+// -------------------------------------------MODAL
+function handleModalShow(dataBase) {
+    const openModal = document.querySelector('.products');
+    const modalHTML = document.querySelector('.modal')
+    const modalProductsHTML = document.querySelector('.modal__products');
+
+    let modal = {}
+    openModal.addEventListener('click', (elements) => {
+        if (elements.target.classList.contains('product__body--name')) {
+            const modalId = Number(elements.target.id)
+            console.log(modalId);
+            const modalFind = dataBase.products.find(
+                (product) => product.id === modalId)
+
+
+            modal[modalFind.id] = structuredClone(modalFind)
+            console.log(modal[modalFind.id]);
+            let html = ''
+            for (const key in modal) {
+                const { quantity, price, name, image, id, description, category } = modal[key];
+
+                html += `
+                            <div class="modal__product ${category}" id='${id}'>
+                                <i class='bx bxs-x-circle' id='${id}'></i>
+                                <div class="modal__product--img">
+                                    <img src="${image}" alt="product">
+                                </div>
+                                <div class="modal__product--body">
+                                    <h3>${name} - ${category}</h3>
+                                    <p class='modal__description'>${description}</p>
+                                    <div class="modal__product--price">
+                                        <h3 class='price'>$${price}.00 ${quantity ? `` : ``}</h3>
+                                        <p>${quantity ? `<span>Stock: ${quantity}</span>`
+                                            : `<span class="modal__soldOut"> Sold out</span>`}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+            };
+            modalProductsHTML.innerHTML = html;
+            modalHTML.classList.add('modal__show')
+            handleAmountProductInCart(dataBase)
+        }
+
+    });
+    modalProductsHTML.addEventListener('click', function (elements) {
+        if (elements.target.classList.contains('bxs-x-circle')) {
+            const modalId = Number(elements.target.id)
+            delete modal[modalId]
+            modalHTML.classList.remove('modal__show')
+        }
+    })
+}
 // ------------------------------------MAIN
 
 async function main() {
@@ -291,7 +355,6 @@ async function main() {
     transitionNavbar();
     handleNavbar();
     handleDarkMode();
-
     printProducts(dataBase);
 
     handleCartshow();
@@ -301,7 +364,11 @@ async function main() {
     printTotal(dataBase);
     handleStockTotal(dataBase);
     handlePrintAmountProductsToCard(dataBase);
-    handleFliter()
+    handleFliter();
+
+    handleModalShow(dataBase);
+
+
 
 }
 main();

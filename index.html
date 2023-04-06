@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://academlostorev1.netlify.app/images/favicon.png">
+    <link rel="icon" href="./assets/image/favicon.svg">
     <title>Olger Academlo Store</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/styles.css">
@@ -29,6 +29,7 @@
             <p class="navbar__menu">
                 <a href="#Home">Home</a>
                 <a href="#products">Products</a>
+                <a href="#footer">Information</a>
             </p>
 
             <div class="navbar__icons">
@@ -42,6 +43,7 @@
             <ul class="navbar__dashboard">
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#products">Products</a></li>
+                <li><a href="#footer">Information</a></li>
             </ul>
         </nav>
 
@@ -95,10 +97,21 @@
                 <button class="btn__buy">Comprar</button>
             </div>
         </section>
+<!-- ----------------------------------------LOADING -->
+        <section class="loading">
+            <div class="loading__load">
+                <img src="./assets/image/favicon.svg" alt="logo de academlo">
+                <h2 class="loading__load--title">Loading...</h2>
+            </div>
+        </section>
+        <!-- --------------------------------------MODALL -->
+        <section class="modal">
+            <div class="modal__products"></div>
+        </section>
     </main>
 
     <footer>
-        <div class="footer__content container">
+        <div class="footer__content container" id="footer">
             <div class="footer__info">
                 <h3 class="footer__info-title">Our information</h3>
                 <ul>

@@ -27,6 +27,10 @@
 
 }
 
+body {
+    background-color: var(--card-color);
+}
+
 body.darkmode {
     --first-color: hsl(182, 53%, 74%);
     --button-color: hsl(246, 16%, 12%);
@@ -524,8 +528,105 @@ a.home__body-button {
     transition: background-color 0.5s, color 0.5s;
 }
 
+/* ---------------------------------------LOADING */
 
+.loading {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-color);
+}
 
+.loading__load {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    animation: jump 1.5s infinite;
+}
+
+.loading__load--title {
+    color: var(--first-color);
+    letter-spacing: .3rem;
+    margin-left: 2rem;
+}
+
+@keyframes jump {
+    50% {
+        transform: translateY(10px);
+    }
+
+}
+/* -------------------------------------MODAL  */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal.modal__show{
+    opacity : 1;
+    pointer-events: unset;
+}
+.modal__product {
+    background-color: var(--container-color);
+    color: var(--title-color);
+    width: 60%;
+    max-width: 600px;
+    margin: auto;
+    border: 2px  solid var(--color-f);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.modal__product > .bxs-x-circle {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    color: var(--title-color);
+}
+.modal__product--img{
+    width: 90%;
+    margin: auto;
+}
+.modal__product--body{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.modal__description {
+    color: var(--text-color-light);
+}
+.modal__product--price{
+    display: flex;
+    justify-content: space-between;
+}
+.modal__soldOut {
+    background-color: var(--first-color);
+    color: var(--title-color);
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+}
 /* -----------------------------------FOOTER----------------------------------- */
 
 footer {
@@ -570,36 +671,46 @@ footer>p {
     padding: 1rem;
     margin-top: 3rem;
     text-align: center;
-
 }
 
+
+
 @media (min-width: 700px) {
-    body {
-        background-color: var(--body-color);
-    }
 
     .navbar {
         max-width: 1024px;
         margin: 0 auto;
         position: relative;
     }
-
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 2rem;
+        color: var(--title-color);
+    }
+    .navbar__menu a:hover {
+        color: var(--first-color);
+    }
+    .navbar__icons .bxs-dashboard {
+        display: none;
+    }
+    
+    
     .home__content {
         flex-direction: row-reverse;
-        min-height: 850px;
+        
     }
-
     .home__header {
         display: flex;
-
+        height: 70vh;
     }
-
     .home__body {
         display: flex;
         justify-content: center;
-        gap: 3rem;
+        /* gap: 3rem; */
+        margin-top: 3rem;
+        height: 70vh;
     }
-
     .home__body h2 {
         font-size: 3rem;
     }
@@ -611,46 +722,31 @@ footer>p {
         right: -30%;
         left: 100%;
     }
-
     .cart__show {
         left: 70%;
     }
 
-    .navbar__menu {
-        display: flex;
-        gap: 2rem;
-        position: absolute;
-        right: 60%;
-        color: var(--title-color);
-    }
-
-    .navbar__menu a:hover {
-        color: var(--first-color);
-    }
-
-    .navbar__icons .bxs-dashboard {
-        display: none;
-    }
 
     .filters {
         display: flex;
         justify-content: center;
         gap: 3rem;
     }
-
     .btn__filter {
         width: 100px;
     }
+
 
     .footer__content {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
-
     .footer__info:nth-child(4) ul {
         text-align: center;
     }
+
+
 
     footer>p {
         display: flex;
